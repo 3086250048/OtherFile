@@ -1,0 +1,14 @@
+Value route_tables (\w+)
+Value route_destinations (\d+) 
+Value routes (\d+)
+Value List destination_mask ((\d+.){3}\d+\/\d+) 
+Value List protocol (\w+)
+Value List preference (\d+)
+Value List flag ((R|D|T)*)
+Value List nexthop ((\d+.){3}\d+)
+Value List interface (\w+\s*\d+)
+					   
+Start 
+  ^\w+\s+\w+:\s+${route_tables}
+  ^\s+\w+\s+:\s*${route_destinations}\s+\w+\s+:\s*${routes}
+  ^\s*${destination_mask}\s*${protocol}

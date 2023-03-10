@@ -1,0 +1,41 @@
+Value intf_name ((\w+\s*(\d+\/)+\d+|\w+\s*\d+))
+Value intf_state_l2 (\w+(\s*\w+)?)
+Value intf_state_l3 (\w+(\s*\w+)?)
+Value intf_mtu (\d+\s*\w+)
+Value intf_packets_in (\d+)
+Value intf_bytes_in (\d+)
+Value intf_bytes_in_multicast (\d+)
+Value intf_packets_out (\d+)
+Value intf_bytes_out (\d+)
+Value intf_bytes_out_multicast (\d+)
+Value intf_packets_dir_bro_re (\d+)
+Value intf_packets_dir_bro_se (\d+)
+Value intf_packets_dir_bro_for (\d+)
+Value intf_packets_dir_bro_dro (\d+)
+Value intf_ip_unicast (\d+.\d+.\d+.\d+\/\d+)
+Value intf_ip_broadcast (\d+.\d+.\d+.\d+)
+Value re_ttl_is_one_packets (\d+)
+Value re_ttl_is_invalid_packets (\d+)
+Value re_icmp_packets (\d+)
+Value re_icmp_reply_packets (\d+)
+Value re_icmp_unreachable_packets (\d+)
+Value re_icmp_request_packets (\d+)
+Value re_icmp_ttl_exceed_packets (\d+)
+
+Start
+  ^${intf_name}\s*current\s*state\s*:\s*${intf_state_l2}
+  ^\w+\s*\w+\s*\w+\s*state\s*:\s*${intf_state_l3}
+  ^\w+\s*\w+\s*\w+\s*Unit\s*:\s*${intf_mtu}
+  ^input\s*packets\s*:\s*${intf_packets_in},\s*\w+\s*:\s*${intf_bytes_in},\s*\w+\s*:\s*${intf_bytes_in_multicast}
+  ^output\s*packets\s*:\s*${intf_packets_out},\s*\w+\s*:\s*${intf_bytes_out},\s*\w+\s*:\s*${intf_bytes_out_multicast}
+  ^\s*received\s*\w+:\s*${intf_packets_dir_bro_re},\s*\w+\s*\w+:\s*${intf_packets_dir_bro_se}
+  ^\s*forwarded\s*\w+:\s*${intf_packets_dir_bro_for},\s*\w+\s*\w+:\s*${intf_packets_dir_bro_dro}
+  ^\w+\s*Address\s*\w+\s+${intf_ip_unicast}
+  ^\w+\s*address\s*:\s*${intf_ip_broadcast}
+  ^\w+\s*being\s*\d*\s*\w+\s*\w+:\s*${re_ttl_is_one_packets}
+  ^\w+\s*invalid\s+\w+\s*\w+:\s*${re_ttl_is_invalid_packets}
+  ^\w+\s*packet\s+\w+\s*\w+:\s*${re_icmp_packets}
+  ^\s*Echo\s*reply:\s*${re_icmp_reply_packets}
+  ^\s*\w+able:\s*${re_icmp_unreachable_packets}
+  ^\s*Echo\s*request:\s*${re_icmp_request_packets}
+  ^\s*\w+\s*exceed:\s*${re_icmp_ttl_exceed_packets}

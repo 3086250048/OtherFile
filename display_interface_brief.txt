@@ -1,0 +1,15 @@
+Value List interfaces ((\w+\s*(\d+\/)+\d+|\w+\s*\d+))
+Value List interfaces_state_phy ((\*?\^?~?#?-?\w+|(\(\w+\))))
+Value List interfcaes_state_protocol (\w*(\(\w+\))*)
+Value List interfaces_inuti ((\d+.\d+%|\d+%))	
+Value List interfaces_oututi ((\d+.\d+%|\d+%))					   
+Value List interfaces_inerror (\d+)
+Value List interfaces_outerror (\d+)	
+					   
+Start 
+ ^${interfaces}\s*${interfaces_state_phy}\s*${interfcaes_state_protocol}\s*${interfaces_inuti}\s*${interfaces_oututi}\s*${interfaces_inerror}\s*${interfaces_outerror}
+						  
+						  
+						  
+						  
+						  

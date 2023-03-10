@@ -1,0 +1,9 @@
+Value List route_list ((\d+.){3}\d+\/\d+)
+Value List nexthop_list ((\d+.){3}\d+)
+Value List route_flag_list ((G|H|U|S|D|B|L)*)
+Value List route_timestamp_list (t\[\d+\])
+Value List route_outinterface_list (\w+(\d+\/)*\d+)
+Value List route_tunnelid_list (\d+x\d+)										 
+
+Start
+  ^${route_list}\s*${nexthop_list}\s*${route_flag_list}\s*${route_timestamp_list}\s*${route_outinterface_list}\s*${route_tunnelid_list}
