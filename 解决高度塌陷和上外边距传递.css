@@ -1,0 +1,10 @@
+.clearfix::before,
+.clearfix::after{
+    /* 占位字符 */
+    content: '';
+    /* table即可以解决高度塌陷也
+    可以解决外边距重叠 */
+    display: table;
+    /* 清除浮动影响解决高度塌陷 */
+    clear: both;
+}
